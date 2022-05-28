@@ -20,37 +20,43 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/peruGradosAcademicos)](https://CRAN.R-project.org/package=peruGradosAcademicos)
 <!-- badges: end -->
 
-The goal of peruGradosAcademicos is to ...
+The goal of peruGradosAcademicos is to have an easy way to access degree information from SUNEDU Perú.
 
 ## Installation
 
 You can install the development version of peruGradosAcademicos like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+remotes::install_github("calderonsamuel/peruGradosAcademicos")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+These are basic examples which shows you how to solve common problems:
+
+You want to know the degrees obtained by a particular person:
 
 ```{r example}
 library(peruGradosAcademicos)
-## basic example code
+
+get_constancia(n_dni = "08192557") |> # this gets JSON
+    parse_constancia() |> # this parses JSON into clean data.frame
+    subset(select = c(NOMBRE, GRADO))
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+You can also do this by specifying the full name of the person (DNI is faster, tho):
 
-```{r cars}
-summary(cars)
+```{r}
+get_constancia(nombre = "ZEGARRA ROJAS OSWALDO DELFIN") |> 
+    parse_constancia() |> 
+    subset(select = c(NOMBRE, GRADO))
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
+You can also get the highest degree of the specified person's DNI in a single line (without degree metadata):
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r}
+get_mayor_grado_from_dni(n_dni = "08192557")
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+
+

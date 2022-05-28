@@ -9,4 +9,4 @@
 library(testthat)
 library(peruGradosAcademicos)
 
-test_check("peruGradosAcademicos")
+# test_check("peruGradosAcademicos")

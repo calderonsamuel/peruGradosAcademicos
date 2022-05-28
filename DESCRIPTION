@@ -1,10 +1,10 @@
 Package: peruGradosAcademicos
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Grados y títulos de Perú
+Version: 0.1.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Samuel", "Calderon", , "samuel.calderon@uarm.pe", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-6847-1210"))
+Description: Obtener información del registro de grados y títulos de Perú recopilado por SUNEDU.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0)
@@ -14,3 +14,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
 URL: https://github.com/calderonsamuel/peruGradosAcademicos
 BugReports: https://github.com/calderonsamuel/peruGradosAcademicos/issues
+Imports: 
+    casemisc (>= 0.0.0.9000),
+    httr2,
+    jsonlite
+Remotes:  
+    calderonsamuel/casemisc
