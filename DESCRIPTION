@@ -1,6 +1,6 @@
 Package: peruGradosAcademicos
 Title: Grados y títulos de Perú
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person("Samuel", "Calderon", , "samuel.calderon@uarm.pe", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-6847-1210"))
