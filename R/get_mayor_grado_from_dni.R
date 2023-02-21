@@ -8,7 +8,7 @@
 #' @examples
 #' get_mayor_grado_from_dni(n_dni = "08192557")
 get_mayor_grado_from_dni <- function(n_dni) {
-    get_info_from_dni(n_dni = n_dni, tipo_info = "TIPO_GRADO") |>
+    get_info_from_dni(n_dni = n_dni, tipo_info = "codAbreGyt") |>
         get_mayor_grado()
 }
 
@@ -22,6 +22,6 @@ get_mayor_grado <- function(grado) {
             "D" = "Doctor",
             "M" = "Magister",
             "T" = "Título profesional",
-            "B" = "Bachiller o egresado"
+            "B" = "Bachiller"
         )
 }
