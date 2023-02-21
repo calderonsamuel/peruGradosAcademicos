@@ -10,9 +10,10 @@
 #' @examples
 #' parse_constancia(get_constancia(n_dni="08192557"))
 parse_constancia <- function(constancia) {
-    constancia |>
+    listado_constancias <- constancia |>
         jsonlite::parse_json() |>
         lapply(lapply, casemisc::replace_null, NA_character_) |>
-        lapply(data.frame) |>
-         do.call(what = rbind, args = _)
+        lapply(data.frame)
+
+     do.call(what = rbind, args = listado_constancias)
 }
