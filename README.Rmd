@@ -41,7 +41,7 @@ library(peruGradosAcademicos)
 
 get_constancia(n_dni = "08192557") |> # this gets JSON
     parse_constancia() |> # this parses JSON into clean data.frame
-    subset(select = c(NOMBRE, GRADO))
+    subset(select = c(nombre, apepat, apemat, gradTitu))
 ```
 
 You can also do this by specifying the full name of the person (DNI is faster, tho):
@@ -49,7 +49,7 @@ You can also do this by specifying the full name of the person (DNI is faster, t
 ```{r}
 get_constancia(nombre = "ZEGARRA ROJAS OSWALDO DELFIN") |> 
     parse_constancia() |> 
-    subset(select = c(NOMBRE, GRADO))
+    subset(select = c(nombre, apepat, apemat, gradTitu))
 ```
 
 You can also get the highest degree of the specified person's DNI in a single line (without degree metadata):

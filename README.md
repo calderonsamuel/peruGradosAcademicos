@@ -33,12 +33,12 @@ library(peruGradosAcademicos)
 
 get_constancia(n_dni = "08192557") |> # this gets JSON
     parse_constancia() |> # this parses JSON into clean data.frame
-    subset(select = c(NOMBRE, GRADO))
-#>                          NOMBRE                                   GRADO
-#> 1 ZEGARRA ROJAS, OSWALDO DELFIN               <b>Bachiller en Medicina 
-#> 2 ZEGARRA ROJAS, OSWALDO DELFIN                     <b>MEDICO CIRUJANO 
-#> 3 ZEGARRA ROJAS, OSWALDO DELFIN <b>ESPECIALISTA EN MEDICINA PEDIATRICA 
-#> 4 ZEGARRA ROJAS, OSWALDO DELFIN                  <b>Doctor en Medicina
+    subset(select = c(nombre, apepat, apemat, gradTitu))
+#>           nombre  apepat apemat                            gradTitu
+#> 1 OSWALDO DELFIN ZEGARRA  ROJAS               Bachiller en Medicina
+#> 2 OSWALDO DELFIN ZEGARRA  ROJAS                     MEDICO CIRUJANO
+#> 3 OSWALDO DELFIN ZEGARRA  ROJAS ESPECIALISTA EN MEDICINA PEDIATRICA
+#> 4 OSWALDO DELFIN ZEGARRA  ROJAS                  Doctor en Medicina
 ```
 
 You can also do this by specifying the full name of the person (DNI is
@@ -47,12 +47,12 @@ faster, tho):
 ``` r
 get_constancia(nombre = "ZEGARRA ROJAS OSWALDO DELFIN") |> 
     parse_constancia() |> 
-    subset(select = c(NOMBRE, GRADO))
-#>                          NOMBRE                                   GRADO
-#> 1 ZEGARRA ROJAS, OSWALDO DELFIN               <b>Bachiller en Medicina 
-#> 2 ZEGARRA ROJAS, OSWALDO DELFIN                     <b>MEDICO CIRUJANO 
-#> 3 ZEGARRA ROJAS, OSWALDO DELFIN <b>ESPECIALISTA EN MEDICINA PEDIATRICA 
-#> 4 ZEGARRA ROJAS, OSWALDO DELFIN                  <b>Doctor en Medicina
+    subset(select = c(nombre, apepat, apemat, gradTitu))
+#>           nombre  apepat apemat                            gradTitu
+#> 1 OSWALDO DELFIN ZEGARRA  ROJAS               Bachiller en Medicina
+#> 2 OSWALDO DELFIN ZEGARRA  ROJAS                     MEDICO CIRUJANO
+#> 3 OSWALDO DELFIN ZEGARRA  ROJAS ESPECIALISTA EN MEDICINA PEDIATRICA
+#> 4 OSWALDO DELFIN ZEGARRA  ROJAS                  Doctor en Medicina
 ```
 
 You can also get the highest degree of the specified person’s DNI in a
