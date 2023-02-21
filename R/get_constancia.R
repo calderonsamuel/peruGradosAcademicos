@@ -23,5 +23,6 @@ get_constancia <- function(n_dni = "", nombre = "") {
             # captcha=""
         ) |>
         httr2::req_perform() |>
-        httr2::resp_body_json()
+        httr2::resp_body_string() |>
+        jsonlite::parse_json()
 }
