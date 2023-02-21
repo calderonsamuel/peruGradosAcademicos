@@ -12,7 +12,7 @@
 #' @examples
 #' get_constancia(n_dni = "08192557") # DNI de Superintendente
 #' get_constancia(nombre = "ZEGARRA ROJAS OSWALDO DELFIN") # Nombre de Superintendente
-get_constancia <- function(n_dni = "", nombre = "") {
+get_constancia <- function(n_dni = NULL, nombre = NULL) {
     httr2::request("https://constancias.sunedu.gob.pe/consulta") |>
         httr2::req_body_form(
             doc=n_dni,
@@ -22,6 +22,7 @@ get_constancia <- function(n_dni = "", nombre = "") {
             icono="",
             # captcha=""
         ) |>
+        httr2::req_retry(max_seconds = 15) |>
         httr2::req_perform() |>
         httr2::resp_body_string() |>
         jsonlite::parse_json()
