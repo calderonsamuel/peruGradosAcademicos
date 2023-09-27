@@ -4,7 +4,7 @@
 \alias{get_constancia}
 \title{Obtener constancia de grados y títulos}
 \usage{
-get_constancia(n_dni = NULL, nombre = NULL)
+get_constancia(n_dni = NULL, nombre = NULL, timeout = 10L)
 }
 \arguments{
 \item{n_dni}{character. Un número de DNI otorgado por RENIEC Perú.}
