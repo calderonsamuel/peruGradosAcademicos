@@ -5,7 +5,7 @@
 #'
 #' @param n_dni character. Un número de DNI otorgado por RENIEC Perú.
 #' @param nombre character. Apellidos y Nombres de una persona natural.
-#' @inheritParams httr2::req_timeout
+#' @param timeout number. Cantidad en segundos para esperar a que se complete la solicitud
 #'
 #' @return character. Información sobre la persona buscada, en formato JSON.
 #' @export

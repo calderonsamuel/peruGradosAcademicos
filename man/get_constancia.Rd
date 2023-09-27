@@ -10,6 +10,8 @@ get_constancia(n_dni = NULL, nombre = NULL, timeout = 10L)
 \item{n_dni}{character. Un número de DNI otorgado por RENIEC Perú.}
 
 \item{nombre}{character. Apellidos y Nombres de una persona natural.}
+
+\item{timeout}{number. Cantidad en segundos para esperar a que se complete la solicitud}
 }
 \value{
 character. Información sobre la persona buscada, en formato JSON.
